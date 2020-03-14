@@ -40,3 +40,28 @@ for i in range(len(list_cat)):
   movie_lst_tot += movie_lst
 print(movie_lst_dict)
 print(movie_lst_tot)
+
+#找出華航機上影片分數最高者
+
+#movie_lst_tot由China Airline movie list取得
+
+movie_lst_rating = []
+for name in movie_lst_tot:
+  try:
+    get_movie_data(name)
+  except:
+    print(name,'無搜尋結果')
+  else:
+    rat = get_movie_data(name)['rating'].pop().pop()
+    movie_lst_rating.append([name,rat])
+    print(name,rat) 
+movie_lst_rating.sort(key = lambda x:x[1],reverse=True)
+#print(movie_lst_rating)
+
+#找出評分最高的電影
+max_rating_movie = movie_lst_rating[0]
+movie_lst_rating.pop(0)
+for i in movie_lst_rating:
+  if i[1] == max_rating_movie[1]:
+    max_rating_movie.append(i)
+print(max_rating_movie)
