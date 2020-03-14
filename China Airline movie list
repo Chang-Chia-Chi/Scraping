@@ -1,3 +1,7 @@
+import requests
+from bs4 import BeautifulSoups
+
+#由華航首頁進入movie分頁
 select_cs = '#main_navigation a'
 url = 'http://www.fantasy-sky.com'
 language_cookie = {
@@ -11,7 +15,7 @@ movie_href = select_cs_tag[2].get('href')
 movie_url = url + movie_href
 #print(movie_url)
 
-#取得分類及對應href  (除href,也可用query string parameter處理)
+#取得電影分類及對應href  (除href,也可用query string parameter處理)
 response_url = requests.get(movie_url,cookies = language_cookie)
 request_text = response_url.text
 soup = BeautifulSoup(request_text)
