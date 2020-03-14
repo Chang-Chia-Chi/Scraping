@@ -41,10 +41,7 @@ for i in range(len(list_cat)):
 print(movie_lst_dict)
 print(movie_lst_tot)
 
-#找出華航機上影片分數最高者
-
-#movie_lst_tot由China Airline movie list取得
-
+#創建[[電影名稱,評分],[],[]...]的串列
 movie_lst_rating = []
 for name in movie_lst_tot:
   try:
