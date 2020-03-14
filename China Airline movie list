@@ -25,6 +25,7 @@ list_href = [e.get('href') for e in soup.select(list_cs)]
 
 #依分類取得電影清單
 movie_lst_dict = {}
+movie_lst_tot = []
 for i in range(len(list_cat)):
   cat = list_cat[i]
   movie_lst_cs ='.movies-name'
@@ -36,4 +37,6 @@ for i in range(len(list_cat)):
     movie_lst_dict[cat] = []
   movie_lst = [e.text for e in soup.select(movie_lst_cs)]
   movie_lst_dict[cat].append(movie_lst)
+  movie_lst_tot += movie_lst
 print(movie_lst_dict)
+print(movie_lst_tot)
