@@ -8,9 +8,11 @@ def get_movie_data(movie_title):
       'movie_release_date_cs' : '.subtext a',
       'movie_cast_cs' : '.primary_photo+ td a'
   }
-  QS_Parameter = {
-    'q': movie_title,
-    'ref_': 'nv_sr_sm'
+    QS_Parameter = {
+       'q': movie_title,
+       's': 'tt',
+       'ttype': 'ft',
+       'ref_': 'fn_ft'
   }
   url = 'https://www.imdb.com/find'
   requests_url = requests.get(url, QS_Parameter)
