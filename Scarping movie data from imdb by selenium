@@ -51,4 +51,9 @@ def get_movie_info(search_movie_title):
   movie_data['movie_cast'] = [e.text for e in elems]
   driver.close()
   return movie_data
-get_movie_info('Avengers')
+Avengers_movie_data = get_movie_info('Avengers')
+
+#output data in json format
+import json
+with open("avengers.json", "w") as f:
+    json.dump(Avengers_movie_data, f)
